@@ -1,5 +1,5 @@
 import React from "react";
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 
 class BooksApp extends React.Component {
@@ -13,6 +13,20 @@ class BooksApp extends React.Component {
     showSearchPage: false,
     books: []
   };
+
+  componentDidMount() {
+    this.getBooks();
+  }
+
+  getBooks = () => {
+    BooksAPI.getAll().then(books => {
+      this.setState(() => ({
+        books
+      }));
+    });
+  };
+
+  // TODO: Create a filter that checks to see if a book is listed as in "read", "currently reading" or "Want to Read"
 
   render() {
     return (
