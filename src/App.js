@@ -27,10 +27,24 @@ class BooksApp extends Component {
     });
   };
 
-  // TODO: Create a filter that checks to see if a book is listed as in "read", "currently reading" or "Want to Read"
-
   render() {
+    const currentlyReading = this.state.books.filter(
+      b => b.shelf === "currentlyReading"
+    );
+    const read = this.state.books.filter(b => b.shelf === "read");
+    const wantToRead = this.state.books.filter(b => b.shelf === "wantToRead");
+
     return (
+      /*
+      <div className='app'>
+        <div className="list-books-title">
+          <h1>MyReads</h1>
+        </div>
+        <Search />
+        <ListBooks />
+
+      </div>
+      */
       <div className="app">
         {this.state.showSearchPage ? (
           <div className="search-books">
