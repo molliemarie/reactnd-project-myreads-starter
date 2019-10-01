@@ -29,6 +29,10 @@ class BooksApp extends Component {
     });
   };
 
+  goBackToShelves = () => {
+    this.setState({ showSearchPage: false });
+  };
+
   render() {
     const currentlyReading = this.state.books.filter(
       b => b.shelf === "currentlyReading"
@@ -39,7 +43,7 @@ class BooksApp extends Component {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
-          <SearchBooks />
+          <SearchBooks onBackButton={this.goBackToShelves} />
         ) : (
           <div className="list-books">
             <div className="list-books-title">

@@ -10,10 +10,7 @@ class SearchBooks extends Component {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <button
-            className="close-search"
-            onClick={() => this.setState({ showSearchPage: false })}
-          >
+          <button className="close-search" onClick={this.props.onBackButton}>
             Close
           </button>
           <div className="search-books-input-wrapper">
