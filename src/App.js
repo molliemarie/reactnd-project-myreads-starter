@@ -36,16 +36,6 @@ class BooksApp extends Component {
     const wantToRead = this.state.books.filter(b => b.shelf === "wantToRead");
 
     return (
-      /*
-      <div className='app'>
-        <div className="list-books-title">
-          <h1>MyReads</h1>
-        </div>
-        <Search />
-        <ListBooks />
-
-      </div>
-      */
       <div className="app">
         {this.state.showSearchPage ? (
           <div className="search-books">
