@@ -2,20 +2,21 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 class Book extends Component {
-  // TODO: PropTypes
+  static propTypes = {
+    book: PropTypes.object.isRequired
+  };
 
-  onShelfUpdate = e => {
-    let shelf = e.target.value;
+  onShelfUpdate = s => {
+    let shelf = s.target.value;
     this.props.shelfUpdate(this.props.book, shelf);
   };
 
   render() {
-    const { book, shelfUpdate } = this.props;
+    const { book } = this.props;
     return (
       <div className="book">
         <div className="book-top">
           <div
-            className="book-cover"
             className="book-cover"
             style={{
               width: 128,

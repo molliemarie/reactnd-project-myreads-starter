@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 import ListBooks from "./ListBooks";
 
 class Shelf extends Component {
-  // TODO: PropTypes
+  static propTypes = {
+    filteredBooks: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
+    shelfUpdate: PropTypes.func.isRequired
+  };
   render() {
     const { filteredBooks, title, shelfUpdate } = this.props;
     return (
