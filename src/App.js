@@ -34,13 +34,13 @@ class BooksApp extends Component {
   };
 
   shelfUpdate = (book, shelf) => {
-    BooksAPI.update(book, shelf).then() => {
-      book.shelf = shelf
+    BooksAPI.update(book, shelf).then(() => {
+      book.shelf = shelf;
       this.setState(currentState => ({
         books: currentState.books.filter(b => b.id !== book.id).concat(book)
-      }))
-    }
-  }
+      }));
+    });
+  };
 
   render() {
     const currentlyReading = this.state.books.filter(
@@ -63,9 +63,18 @@ class BooksApp extends Component {
                 <Shelf
                   filteredBooks={currentlyReading}
                   title="Currently Reading"
+                  shelfUpdate={this.shelfUpdate}
                 />
-                <Shelf filteredBooks={wantToRead} title="Want to Read" />
-                <Shelf filteredBooks={read} title="Read" />
+                <Shelf
+                  filteredBooks={wantToRead}
+                  title="Want to Read"
+                  shelfUpdate={this.shelfUpdate}
+                />
+                <Shelf
+                  filteredBooks={read}
+                  title="Read"
+                  shelfUpdate={this.shelfUpdate}
+                />
               </div>
             </div>
             <div className="open-search">

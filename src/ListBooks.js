@@ -6,12 +6,12 @@ class ListBooks extends Component {
   // TODO: PropTypes
   // TODO: Everything else!
   render() {
-    const { filteredBooks, title } = this.props;
+    const { filteredBooks, title, shelfUpdate } = this.props;
     return (
       <ol className="books-grid">
         {filteredBooks.map(book => (
           <li key={book.id}>
-            <Book book={book} />
+            <Book book={book} shelfUpdate={shelfUpdate} />
           </li>
         ))}
       </ol>

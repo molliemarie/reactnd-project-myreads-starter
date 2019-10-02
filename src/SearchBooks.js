@@ -7,10 +7,11 @@ class SearchBooks extends Component {
     booksOnDisplay: []
   };
   render() {
+    const { onBackButton } = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <button className="close-search" onClick={this.props.onBackButton}>
+          <button className="close-search" onClick={onBackButton}>
             Close
           </button>
           <div className="search-books-input-wrapper">

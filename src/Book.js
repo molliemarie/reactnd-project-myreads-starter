@@ -3,8 +3,14 @@ import PropTypes from "prop-types";
 
 class Book extends Component {
   // TODO: PropTypes
+
+  onShelfUpdate = e => {
+    let shelf = e.target.value;
+    this.props.shelfUpdate(this.props.book, shelf);
+  };
+
   render() {
-    const { book } = this.props;
+    const { book, shelfUpdate } = this.props;
     return (
       <div className="book">
         <div className="book-top">
@@ -18,7 +24,7 @@ class Book extends Component {
             }}
           />
           <div className="book-shelf-changer">
-            <select>
+            <select onChange={this.onShelfUpdate} defaultValue={book.shelf}>
               <option value="move" disabled>
                 Move to...
               </option>
