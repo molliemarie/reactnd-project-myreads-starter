@@ -3,6 +3,7 @@ import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 import Shelf from "./Shelf";
 import SearchBooks from "./SearchBooks";
+import { Route, Link } from "react-router-dom";
 
 class BooksApp extends Component {
   state = {
@@ -51,39 +52,42 @@ class BooksApp extends Component {
 
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          <SearchBooks onBackButton={this.goBackToShelves} />
-        ) : (
-          <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
-            <div className="list-books-content">
-              <div>
-                <Shelf
-                  filteredBooks={currentlyReading}
-                  title="Currently Reading"
-                  shelfUpdate={this.shelfUpdate}
-                />
-                <Shelf
-                  filteredBooks={wantToRead}
-                  title="Want to Read"
-                  shelfUpdate={this.shelfUpdate}
-                />
-                <Shelf
-                  filteredBooks={read}
-                  title="Read"
-                  shelfUpdate={this.shelfUpdate}
-                />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <div className="list-books">
+              <div className="list-books-title">
+                <h1>MyReads</h1>
+              </div>
+              <div className="list-books-content">
+                <div>
+                  <Shelf
+                    filteredBooks={currentlyReading}
+                    title="Currently Reading"
+                    shelfUpdate={this.shelfUpdate}
+                  />
+                  <Shelf
+                    filteredBooks={wantToRead}
+                    title="Want to Read"
+                    shelfUpdate={this.shelfUpdate}
+                  />
+                  <Shelf
+                    filteredBooks={read}
+                    title="Read"
+                    shelfUpdate={this.shelfUpdate}
+                  />
+                </div>
+              </div>
+              <div className="open-search">
+                <Link className="add-book" to="/search">
+                  Add a book
+                </Link>
               </div>
             </div>
-            <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>
-                Add a book
-              </button>
-            </div>
-          </div>
-        )}
+          )}
+        />
+        <Route path="/search" component={SearchBooks} />
       </div>
     );
   }

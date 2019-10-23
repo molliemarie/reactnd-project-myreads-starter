@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class SearchBooks extends Component {
   state = {
@@ -11,9 +12,9 @@ class SearchBooks extends Component {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <button className="close-search" onClick={onBackButton}>
+          <Link className="close-search" to="/">
             Close
-          </button>
+          </Link>
           <div className="search-books-input-wrapper">
             {/*
               NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -27,6 +28,9 @@ class SearchBooks extends Component {
               type="text"
               placeholder="Search by title or author"
               onChange={e => {
+                // add search function and query parameters
+                // will get results
+                // then need to set state
                 console.log(e.target.value);
               }}
             />
