@@ -42,12 +42,13 @@ class SearchBooks extends Component {
             <input
               type="text"
               placeholder="Search by title or author"
-              onChange={e => {
-                // add search function and query parameters
-                // will get results
-                // then need to set state
-                console.log(e.target.value);
-              }}
+              onChange={e => this.updateQuery(e.target.value)}
+              // onChange={e => {
+              //   // add search function and query parameters
+              //   // will get results
+              //   // then need to set state
+              //   console.log(e.target.value);
+              // }}
             />
           </div>
         </div>
