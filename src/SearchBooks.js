@@ -1,12 +1,28 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import * as BooksAPI from "./BooksAPI";
+import Book from "./Book";
 
 class SearchBooks extends Component {
   state = {
-    filteredBooks: [],
-    booksOnDisplay: []
+    books: [],
+    query: []
   };
+
+  updateQuery = query => {
+    if (!query) {
+      this.setState({ query: "", books: [] });
+    } else {
+      this.setState({ query: query.trim() });
+      BooksAPI.search(query).then(books => {
+        if (books.error) {
+          books = [];
+        }
+      });
+    }
+  };
+
   render() {
     const { onBackButton } = this.props;
     return (
