@@ -24,7 +24,6 @@ class SearchBooks extends Component {
   };
 
   render() {
-    const { onBackButton } = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
