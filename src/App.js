@@ -80,7 +80,12 @@ class BooksApp extends Component {
             </div>
           )}
         />
-        <Route path="/search" component={SearchBooks} />
+        <Route
+          path="/search"
+          render={props => (
+            <SearchBooks shelfUpdate={this.shelfUpdate} {...props} />
+          )}
+        />
       </div>
     );
   }
