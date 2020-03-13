@@ -21,7 +21,11 @@ class Book extends Component {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${book.imageLinks.smallThumbnail})`
+              // conditional check
+              // && used as a conditional return
+              // if image links is defined, then return this.
+              backgroundImage: `url(${book.imageLinks &&
+                book.imageLinks.smallThumbnail})`
             }}
           />
           <div className="book-shelf-changer">
