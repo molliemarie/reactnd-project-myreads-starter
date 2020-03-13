@@ -25,7 +25,7 @@ class SearchBooks extends Component {
   };
 
   render() {
-    const { filteredBooks, shelfUpdate } = this.props;
+    const { shelfUpdate, shelfBookState } = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -56,6 +56,7 @@ class SearchBooks extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
+            {console.log(shelfBookState)}
             {this.state.books.length > 0 &&
               this.state.books.map(
                 book =>
