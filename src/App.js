@@ -19,7 +19,6 @@ class BooksApp extends Component {
       this.setState(() => ({
         books
       }));
-      console.log(books);
     });
   };
 

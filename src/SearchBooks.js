@@ -5,6 +5,11 @@ import * as BooksAPI from "./BooksAPI";
 import Book from "./Book";
 
 class SearchBooks extends Component {
+  static propTypes = {
+    shelfBookState: PropTypes.array.isRequired,
+    shelfUpdate: PropTypes.func.isRequired
+  };
+
   state = {
     books: [],
     query: []
@@ -45,18 +50,11 @@ class SearchBooks extends Component {
               type="text"
               placeholder="Search by title or author"
               onChange={e => this.updateQuery(e.target.value)}
-              // onChange={e => {
-              //   // add search function and query parameters
-              //   // will get results
-              //   // then need to set state
-              //   console.log(e.target.value);
-              // }}
             />
           </div>
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {console.log(shelfBookState)}
             {this.state.books.length > 0 &&
               this.state.books.map(book => {
                 const currentShelfStateList = shelfBookState.filter(
