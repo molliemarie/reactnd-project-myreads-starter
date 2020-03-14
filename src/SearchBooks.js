@@ -60,9 +60,14 @@ class SearchBooks extends Component {
             {this.state.books.length > 0 &&
               this.state.books.map(
                 book =>
-                  console.log(book) || (
-                    <Book key={book.id} book={book} shelfUpdate={shelfUpdate} />
-                  )
+                  currentShelfState = this.state.books.filter(b => b.id === book.id)
+                  currentShelf = currentShelfState.shelf
+                  if currentShelfState.length > 0 {
+                    return <Book key={book.id} book={book} shelfUpdate={shelfUpdate} shelf={currentShelf}/>
+                  } else {
+                    return <Book key={book.id} book={book} shelfUpdate={shelfUpdate} shelf="none"/>
+                  }
+
               )}
           </ol>
         </div>
