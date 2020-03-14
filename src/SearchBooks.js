@@ -58,17 +58,25 @@ class SearchBooks extends Component {
           <ol className="books-grid">
             {console.log(shelfBookState)}
             {this.state.books.length > 0 &&
-              this.state.books.map(
-                book =>
-                  currentShelfState = this.state.books.filter(b => b.id === book.id)
-                  currentShelf = currentShelfState.shelf
-                  if currentShelfState.length > 0 {
-                    return <Book key={book.id} book={book} shelfUpdate={shelfUpdate} shelf={currentShelf}/>
-                  } else {
-                    return <Book key={book.id} book={book} shelfUpdate={shelfUpdate} shelf="none"/>
-                  }
-
-              )}
+              this.state.books.map(book => {
+                const currentShelfStateList = shelfBookState.filter(
+                  b => b.id === book.id
+                );
+                if (currentShelfStateList.length > 0) {
+                  const currentShelf = currentShelfStateList[0].shelf;
+                  book.shelf = currentShelf;
+                } else {
+                  book.shelf = "none";
+                }
+                return (
+                  <Book
+                    key={book.id}
+                    book={book}
+                    shelfUpdate={shelfUpdate}
+                    defaultValue="none"
+                  />
+                );
+              })}
           </ol>
         </div>
       </div>
