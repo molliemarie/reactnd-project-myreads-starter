@@ -16,7 +16,7 @@ The main page also has a link to a search page that allows you to find books to 
 
 ## Steps for installingn and launching
 
-1. Clone this repository 
-2. In the terminal, navigate to the newly created repository folder
-3. run `npm start` in the terminal
+1. Clone this repository.
+2. In the terminal, navigate to the newly created repository folder.
+3. run `npm start` in the terminal.
 4. Start playing!
